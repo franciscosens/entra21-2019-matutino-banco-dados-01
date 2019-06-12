@@ -25,8 +25,32 @@ namespace Exemplo01
             carro.Ano = Convert.ToInt32(nudAno.Value);
             carro.Preco = Convert.ToDecimal(mtbPreco.Text);
             carro.Cor = cbCor.SelectedItem.ToString();
-         
+
             // Desenvolvimento da tela de cadastro de carro
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\MeusCarros.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"INSERT INTO carros 
+(modelo, ano, preco, cor)
+VALUES (@MODELO, @ANO, @PRECO, @COR)";
+comando.Parameters.AddWithValue("@MODELO", carro.Modelo);
+comando.Parameters.AddWithValue("@ANO", carro.Ano);
+comando.Parameters.AddWithValue("@PRECO", carro.Preco);
+comando.Parameters.AddWithValue("@COR", carro.Cor);
+comando.ExecuteNonQuery();
+            MessageBox.Show("Registro criado com sucesso");
+            LimparCampos();
+        }
+
+        private void LimparCampos()
+        {
+            txtModelo.Clear();
+            nudAno.Value = DateTime.Now.Year;
+            cbCor.SelectedIndex = -1;
+            mtbPreco.Clear();
         }
     }
 }
