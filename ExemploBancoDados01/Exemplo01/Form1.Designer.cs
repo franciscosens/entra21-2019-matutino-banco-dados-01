@@ -158,6 +158,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(408, 59);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(506, 393);
             this.dataGridView1.TabIndex = 9;
             // 
@@ -182,7 +183,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Apagar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // btnApagar
             // 
