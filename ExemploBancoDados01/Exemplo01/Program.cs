@@ -16,7 +16,7 @@ namespace Exemplo01
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new btnApagar());
+            Application.Run(new Form1());
         }
     }
 }
