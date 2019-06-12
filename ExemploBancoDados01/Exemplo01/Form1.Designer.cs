@@ -1,6 +1,6 @@
 ﻿namespace Exemplo01
 {
-    partial class Form1
+    partial class btnApagar
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -37,7 +37,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nudAno = new System.Windows.Forms.NumericUpDown();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudAno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,6 +77,9 @@
             // 
             this.cbCor.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.cbCor.FormattingEnabled = true;
+            this.cbCor.Items.AddRange(new object[] {
+            "Preto",
+            "Vermelho"});
             this.cbCor.Location = new System.Drawing.Point(33, 154);
             this.cbCor.Name = "cbCor";
             this.cbCor.Size = new System.Drawing.Size(308, 41);
@@ -109,9 +117,24 @@
             // 
             this.nudAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.nudAno.Location = new System.Drawing.Point(33, 344);
+            this.nudAno.Maximum = new decimal(new int[] {
+            2019,
+            0,
+            0,
+            0});
+            this.nudAno.Minimum = new decimal(new int[] {
+            1950,
+            0,
+            0,
+            0});
             this.nudAno.Name = "nudAno";
             this.nudAno.Size = new System.Drawing.Size(308, 40);
             this.nudAno.TabIndex = 7;
+            this.nudAno.Value = new decimal(new int[] {
+            1950,
+            0,
+            0,
+            0});
             // 
             // btnSalvar
             // 
@@ -124,11 +147,50 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // Form1
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
+            this.ColumnModelo});
+            this.dataGridView1.Location = new System.Drawing.Point(408, 59);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(506, 393);
+            this.dataGridView1.TabIndex = 9;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Código";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            // 
+            // ColumnModelo
+            // 
+            this.ColumnModelo.HeaderText = "Modelo";
+            this.ColumnModelo.Name = "ColumnModelo";
+            this.ColumnModelo.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
+            this.button1.Location = new System.Drawing.Point(770, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 48);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Apagar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnApagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 464);
+            this.ClientSize = new System.Drawing.Size(926, 464);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.nudAno);
             this.Controls.Add(this.label4);
@@ -138,9 +200,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "btnApagar";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.nudAno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,6 +221,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudAno;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnModelo;
+        private System.Windows.Forms.Button button1;
     }
 }
 
