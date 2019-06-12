@@ -95,24 +95,33 @@ VALUES (@MODELO, @ANO, @PRECO, @COR)";
                 return;
             }
 
+            DialogResult caixaDialogo = MessageBox.Show(
+                "Deseja realmente apagar?", "AVISO",
+            MessageBoxButtons.YesNo);
 
-            SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\MeusCarros.mdf;Integrated Security=True;Connect Timeout=30";
-            conexao.Open();
+            if(caixaDialogo == DialogResult.Yes)
+            {
+                SqlConnection conexao = new SqlConnection();
+                conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\MeusCarros.mdf;Integrated Security=True;Connect Timeout=30";
+                conexao.Open();
 
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexao;
-            comando.CommandText =
-                "DELETE FROM carros WHERE id = @ID";
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexao;
+                comando.CommandText =
+                    "DELETE FROM carros WHERE id = @ID";
 
-            int id = Convert.ToInt32(
-                dataGridView1.CurrentRow
-                .Cells[0].Value);
-            comando.Parameters.AddWithValue("@ID", id);
-            comando.ExecuteNonQuery();
+                int id = Convert.ToInt32(
+                    dataGridView1.CurrentRow
+                    .Cells[0].Value);
+                comando.Parameters.AddWithValue("@ID", id);
+                comando.ExecuteNonQuery();
 
-            conexao.Close();
-            AtualizarTabela();
+                conexao.Close();
+                AtualizarTabela();
+            }
+
+
+           
         }
     }
 }
